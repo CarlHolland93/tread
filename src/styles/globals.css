@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/600.css';
+
+@plugin "tailwindcss-animate";
+
+@theme {
+  --color-bg: #08090b;
+  --color-surface: #16171a;
+  --color-surface-2: #1c1d21;
+  --color-surface-3: #25262b;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.1);
+  --color-text: #fafafa;
+  --color-text-dim: #9ca0a6;
+  --color-text-dimmer: #5c5f66;
+  /* Monochrome brand: primary actions are white. Colour is reserved for score
+     meaning (good/warn/bad), never decoration. */
+  --color-accent: #fafafa;
+  --color-good: #6ee7a5;
+  --color-warn: #f5c26b;
+  --color-bad: #ef6b6b;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Mobile shell: no overscroll bounce, respect safe areas */
+body {
+  margin: 0;
+  overscroll-behavior-y: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide scrollbars but keep scrolling (mobile prototype feel) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(var(--scan-travel, 240px)); opacity: 0; }
+}
+
+@keyframes pulse-marker {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.35); opacity: 0.4; }
+}

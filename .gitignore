@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+
+# env: never commit a real key. The example template stays.
+.env
+.env.*
+!.env.local.example
