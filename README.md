@@ -1,7 +1,11 @@
 # Tread
 
-Point a phone at a running shoe and find out how worn it is. A prototype of one
+Point a phone at a running shoe and explore its visible wear. A prototype of one
 moment: the camera, with Claude vision doing the looking.
+
+**Status:** Local camera prototype, run with your own Anthropic API key. Wear
+scores are experimental model estimates and have not been validated against
+physical wear measurements. The recording below shows the current interaction.
 
 <img src="docs/live-scout.gif" width="300" alt="Live scout on an iPhone: a Salomon trail shoe turned in front of the camera while findings such as 'Toe box scuffing' and 'Midsole light soiling' appear over the viewfinder, with the brand read off the shoe.">
 
@@ -43,6 +47,16 @@ the app falls back to a photo upload.
 
 The API key ships to the browser. That is fine on your own network and wrong
 for anything deployed, where the call belongs behind a server.
+
+## Development checks
+
+Use Node.js 22.13+ and pnpm 10. CI runs these checks on pushes and pull requests:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm lint     # ESLint
+pnpm build    # TypeScript validation and production bundle
+```
 
 ## Where things live
 
